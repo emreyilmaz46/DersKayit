@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Giriş Ekranı";
+}
+
+<h2>Lütfen giriş yapınız!</h2>
+
+<div class="breadcrumb">
+    
+    @using (Html.BeginForm())
+    {
+        <label class="lead">@Html.Label("Öğrenci Numaranızı Giriniz: ") </label>
+        @Html.TextBox("OgrenciNo");
+        <label class="lead">@Html.Label("Şifrenizi Giriniz: ") </label>
+        @Html.Password("Sifre");
+        <input type="submit" value="Giriş" class="btn btn-primary">
+    }
+
+</div>
+
