@@ -1,0 +1,20 @@
+﻿@model DersKayit.Models.Ogrenci
+
+@{
+    ViewBag.Title = "Goster";
+}
+
+<h2>Başarıyla giriş yaptınız!</h2>
+
+<div clas="breadcrumb">
+    <ul>
+        <li><label>Ad: </label>@Model.OgrenciAd</li>
+        <li><label>Soyad: </label>@Model.OgrenciSoyad</li>
+        <li><label>Öğrenci Numarası: </label>@Model.OgrenciNo</li>
+    </ul>
+</div>
+
+<div class="panel">
+    <label>@Html.ActionLink("Ders Seç","Index","Ders")</label>
+
+</div>

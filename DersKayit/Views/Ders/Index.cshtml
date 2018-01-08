@@ -1,0 +1,82 @@
+﻿@model IEnumerable<DersKayit.Models.Ders>
+@{
+    ViewBag.Title = "Ders Seçim Sayfası";
+}
+<div class="page-header">
+<h2>Ders Seçim Sayfasına Hoşgeldiniz!</h2>
+</div>
+<div class="container">
+    <div class="panel panel-heading col-md-2 lead">
+        @Html.DisplayNameFor(model => model.DersAdi)
+    </div>
+    <div class="panel panel-heading col-md-2 lead">
+        @Html.DisplayNameFor(model => model.DersKodu)
+    </div>
+    <div class="panel panel-heading col-md-2 lead">
+        @Html.DisplayNameFor(model => model.Kontenjan)
+    </div>
+    <div class="panel panel-heading col-md-2 lead">
+        @Html.DisplayNameFor(model => model.OnSartVarMi)
+    </div>
+    <div class="panel panel-heading col-md-2 lead">
+        @Html.DisplayNameFor(model => model.BolumId)
+    </div>
+    <div class="panel panel-heading col-md-2 lead">
+        @Html.DisplayNameFor(model => model.HocaId)
+    </div>
+    
+    @foreach (var item in Model)
+    {
+        <div class="panel panel-body col-md-2 lead">
+            @Html.DisplayFor(modelitem => item.DersAdi)
+        </div>
+        <div class="panel panel-body col-md-2 lead">
+            @Html.DisplayFor(modelitem => item.DersKodu)
+        </div>
+        <div class="panel panel-body col-md-2 lead">
+            @Html.DisplayFor(modelitem => item.Kontenjan)
+        </div>
+        <div class="panel panel-body col-md-2 lead">
+            @Html.DisplayFor(modelitem => item.OnSartVarMi)
+        </div>
+        <div class="panel panel-body col-md-2 lead">
+            @Html.DisplayFor(modelitem => item.BolumId)
+        </div>
+        <div class="panel panel-body col-md-2 lead">
+            @Html.DisplayFor(modelitem => item.HocaId)
+        </div>
+    }
+
+
+
+
+
+</div>
+
+
+@*@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function ()
+        {
+           $('#TumDersleriGetir').click(function () {
+                $.ajax({
+                    url: '/Ders/TumDersler',
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function (data) {
+                        $.each(data, function (i, item) {
+                            $('#TumDersler').append(
+                                "<div class='panel'>Ders Adı : <strong>" + item.DersAdi + "</strong><br>" +
+                                "Ders Kodu : <strong>" + item.DersKodu + "</strong><br>" +
+                                "Kontenjan : <strong>" + item.Kontenjan + "</strong><br>"
+                            );
+                        });
+                    }
+                });
+            });
+
+        });
+    </script>
+    
+}*@

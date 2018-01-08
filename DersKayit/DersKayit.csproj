@@ -148,7 +148,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DenemeController.cs" />
+    <Compile Include="Controllers\DersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DersKayitContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -195,6 +198,15 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Giris.cshtml" />
+    <Content Include="Views\Home\Goster.cshtml" />
+    <Content Include="Views\Home\HataliGiris.cshtml" />
+    <Content Include="Views\Ders\Index.cshtml" />
+    <Content Include="Views\Ders\Liste.cshtml" />
+    <Content Include="Views\Deneme\Create.cshtml" />
+    <Content Include="Views\Deneme\Delete.cshtml" />
+    <Content Include="Views\Deneme\Details.cshtml" />
+    <Content Include="Views\Deneme\Edit.cshtml" />
+    <Content Include="Views\Deneme\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

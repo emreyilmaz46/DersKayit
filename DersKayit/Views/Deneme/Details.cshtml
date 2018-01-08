@@ -1,0 +1,66 @@
+﻿@model DersKayit.Models.Ders
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ders</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DersAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DersAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DersKodu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DersKodu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kontenjan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kontenjan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OnSartVarMi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OnSartVarMi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BolumId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BolumId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HocaId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HocaId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DersId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

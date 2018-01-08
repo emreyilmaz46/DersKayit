@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DersKayit.Models;
 
 namespace DersKayit.Controllers
 {
@@ -15,9 +16,22 @@ namespace DersKayit.Controllers
         [HttpPost]
         public ActionResult Giris(FormCollection bilgiler)
         {
-            var ogrno = bilgiler["OgrenciNo"];
-            var sifre = bilgiler["Sifre"];
-            return View();
+            string ogrno = bilgiler["OgrenciNo"];
+            int ogrnoINT = Convert.ToInt32(ogrno);
+            string sifre = bilgiler["Sifre"];
+            DersKayitContext Db = new DersKayitContext();
+            Ogrenci tempOgrenci = new Ogrenci();
+            tempOgrenci = Db.Ogrenciler.Where(I => (I.OgrenciNo == ogrnoINT) && (I.Sifre == sifre)).SingleOrDefault();
+
+            if (tempOgrenci == null)
+            {
+                return View("HataliGiris");
+            }
+            else
+            {
+                return View("Goster", tempOgrenci);
+            }
+            
         }
 
         public ActionResult Contact()
