@@ -14,7 +14,16 @@ namespace DersKayit.Controllers
         // GET: Ders
         public ActionResult Index()
         {
-            return View(Db.Dersler.ToList());
+            if (Session["UserId"] != null)
+            {
+                return View(Db.Dersler.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Giris","Home");
+            }
+
+            
         }
         [HttpPost]
         public JsonResult TumDersler()
@@ -31,12 +40,12 @@ namespace DersKayit.Controllers
             return View();
         }
 
-        public ActionResult DersEkle(int ogrenciId, int dersId)
+        public ActionResult DersEkle(int ogrenciNo, int dersId)
         {
             Ders eklenecekDers = new Ders();
             eklenecekDers = Db.Dersler.Single(I => I.DersId == dersId);
             Ogrenci tempOgrenci = new Ogrenci();
-            tempOgrenci = Db.Ogrenciler.Single(I => I.OgrenciId == ogrenciId);
+            tempOgrenci = Db.Ogrenciler.Single(I => I.OgrenciNo == ogrenciNo);
 
 
             if (tempOgrenci.Dersler.Contains(eklenecekDers))
@@ -57,12 +66,12 @@ namespace DersKayit.Controllers
             return View(tempOgrenci);
         }
 
-        public ActionResult DersSil(int ogrenciId, int dersId)
+        public ActionResult DersSil(int ogrenciNo, int dersId)
         {
             Ders silinecekDers = new Ders();
             silinecekDers = Db.Dersler.Single(I => I.DersId == dersId);
             Ogrenci tempOgrenci = new Ogrenci();
-            tempOgrenci = Db.Ogrenciler.Single(I => I.OgrenciId == ogrenciId);
+            tempOgrenci = Db.Ogrenciler.Single(I => I.OgrenciNo == ogrenciNo);
 
             if (tempOgrenci.Dersler.Contains(silinecekDers))
             {

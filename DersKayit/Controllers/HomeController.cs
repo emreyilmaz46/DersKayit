@@ -14,11 +14,16 @@ namespace DersKayit.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Giris(FormCollection bilgiler)
         {
             string ogrno = bilgiler["OgrenciNo"];
             int ogrnoINT = Convert.ToInt32(ogrno);
             string sifre = bilgiler["Sifre"];
+            //
+            Session["UserId"] = bilgiler["OgrenciNo"];
+            Session["UserPass"] = bilgiler["Sifre"];
+            //
             DersKayitContext Db = new DersKayitContext();
             Ogrenci tempOgrenci = new Ogrenci();
             tempOgrenci = Db.Ogrenciler.Where(I => (I.OgrenciNo == ogrnoINT) && (I.Sifre == sifre)).SingleOrDefault();

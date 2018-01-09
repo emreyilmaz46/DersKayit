@@ -8,6 +8,7 @@
     
     @using (Html.BeginForm())
     {
+        @Html.AntiForgeryToken();
         <label class="lead">@Html.Label("Öğrenci Numaranızı Giriniz: ") </label>
         @Html.TextBox("OgrenciNo");
         <label class="lead">@Html.Label("Şifrenizi Giriniz: ") </label>

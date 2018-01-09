@@ -53,7 +53,7 @@
             @Html.DisplayFor(modelitem => item.Hoca.HocaTamAd)
         </div>
         <div class="panel panel-body col-md-1">
-            @Html.ActionLink("Ekle","DersEkle","Ders", new { ogrenciId = 4, dersId = item.DersId}, null)
+            @Html.ActionLink("Ekle","DersEkle","Ders", new { ogrenciNo = Session["UserId"], dersId = item.DersId}, null)
         </div>
         </div>
      }
