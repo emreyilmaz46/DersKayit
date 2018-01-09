@@ -1,7 +1,18 @@
 ﻿@model DersKayit.Models.Ogrenci
 
 <h2>Öğrenci Kayıt Durumu</h2>
-<p class="alert alert-info" role="alert"> @TempData["Message"] </p>
+
+
+@{
+    if (TempData["Durum"].ToString() == "1")
+    {
+        <p class="alert alert-success" role="alert"> @TempData["Message"] </p>
+    }
+    else if (TempData["Durum"].ToString() == "0")
+    {
+        <p class="alert alert-danger" role="alert"> @TempData["Message"] </p>
+    }
+}
 
 <div class="container">
     <h5>Öğrenci Bilgileri</h5>
