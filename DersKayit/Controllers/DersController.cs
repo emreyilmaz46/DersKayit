@@ -41,9 +41,11 @@ namespace DersKayit.Controllers
 
             if (tempOgrenci.Dersler.Contains(eklenecekDers))
             {
+                TempData["Message"] = "Bu ders zaten eklenmiş";
             }
             else
             {
+                TempData["Message"] = "Ders başarıyla eklendi";
                 tempOgrenci.Dersler.Add(eklenecekDers);
                 Db.SaveChanges();
             }
