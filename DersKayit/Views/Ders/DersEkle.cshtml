@@ -13,7 +13,11 @@
     <ol>
         @foreach (var item in Model.Dersler)
         {
-            <li>@item.DersAdi</li>
+            <li>
+                <a href="@Url.Action("DersDetay","Ders", new {dersId = item.DersId},null)">
+                    @item.DersAdi
+                    </a>
+            </li>
         }
     </ol>
     <hr/>
