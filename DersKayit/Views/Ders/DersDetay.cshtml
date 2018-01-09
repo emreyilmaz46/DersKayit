@@ -1,15 +1,18 @@
 ﻿@model DersKayit.Models.Ders
 @{
-    ViewBag.Title = "DersDetay";
+    ViewBag.Title = "Ders Detayı";
 }
 
 <h2>Derse Ait Bilgiler</h2>
 <hr/>
 
 <p class="lead">Ders Adı: @Model.DersAdi</p>
-<p>Ders Kodu: @Model.DersKodu</p>
-<p>Toplam Kontenjan: @Model.Kontenjan</p>
-<p>Kayıtlı Öğrenci Sayısı: @Model.KayitliOgrenciler.Count</p>
+<p><strong>Ders Kodu:</strong> @Model.DersKodu</p>
+<p><strong>Toplam Kontenjan:</strong> @Model.Kontenjan</p>
+<p><strong>Kayıtlı Öğrenci Sayısı:</strong> @Model.KayitliOgrenciler.Count</p>
+<p> <strong>Bölümü:</strong> @Model.Bolum.BolumAdi</p>
+<p> <strong>Dersin Hocası:</strong> @Model.Hoca.HocaTamAd</p>
 
-
+<hr/>
+<p>@Html.ActionLink("Ders Ekleme Ekranına Geri Dön","Index","Ders")</p>
 

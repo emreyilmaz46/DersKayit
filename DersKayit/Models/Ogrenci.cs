@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -13,8 +14,10 @@ namespace DersKayit.Models
         public int OgrenciNo { get; set; }
         public string Sifre { get; set; }
         public string Rol { get; set; }
+        [Display(Name = "Öğrenci Adı")]
+        public string OgrenciTamAd => $"{this.OgrenciAd} {this.OgrenciSoyad}";
 
-        public virtual int BolumId { get; set; }
+        public virtual Bolum Bolum { get; set; }
         public virtual List<Ders> Dersler { get; set; }
 
         public Ogrenci()

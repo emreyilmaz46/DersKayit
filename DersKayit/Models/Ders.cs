@@ -18,8 +18,8 @@ namespace DersKayit.Models
         [Display(Name = "Ön Şart")]
         public bool OnSartVarMi { get; set; }
 
-        public virtual int BolumId { get; set;}
-        public virtual int HocaId { get; set; }
+        public virtual Bolum Bolum { get; set;}
+        public virtual Hoca Hoca { get; set; }
         public virtual List<Ders> OnsartDersler { get; set; }
         public virtual List<Ogrenci> KayitliOgrenciler { get; set; }
 

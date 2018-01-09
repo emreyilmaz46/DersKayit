@@ -5,18 +5,19 @@
 <div class="container">
     <h5>Öğrenci Bilgileri</h5>
     <ul>
-        <li> @Model.OgrenciAd</li>
-        <li> @Model.OgrenciSoyad</li>
-        <li> @Model.OgrenciNo</li>
-        <li> Bu öğrenci için toplam @Model.Dersler.Count adet ders eklenmiştir</li>
+        <li> <strong>İsim:</strong> @Model.OgrenciTamAd</li>
+        <li> <strong>Öğrenci Numarası:</strong> @Model.OgrenciNo</li>
+        <li> <strong>Bu öğrenci için toplam @Model.Dersler.Count adet ders eklenmiştir</strong></li>
     </ul>
     <hr/> <h5>Öğrenciye Ait Ekli Dersler</h5>
     <ol>
-                @foreach (var item in Model.Dersler)
-                {
-                  <li>@item.DersAdi</li>
+        @foreach (var item in Model.Dersler)
+        {
+            <li>@item.DersAdi</li>
         }
     </ol>
+    <hr/>
+    <p>@Html.ActionLink("Ders Ekleme Ekranına Geri Dön","Index","Ders")</p>
 
 </div>
 
