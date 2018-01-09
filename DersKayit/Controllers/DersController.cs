@@ -57,6 +57,24 @@ namespace DersKayit.Controllers
             return View(tempOgrenci);
         }
 
+        public ActionResult DersSil(int ogrenciId, int dersId)
+        {
+            Ders silinecekDers = new Ders();
+            silinecekDers = Db.Dersler.Single(I => I.DersId == dersId);
+            Ogrenci tempOgrenci = new Ogrenci();
+            tempOgrenci = Db.Ogrenciler.Single(I => I.OgrenciId == ogrenciId);
+
+            if (tempOgrenci.Dersler.Contains(silinecekDers))
+            {
+                TempData["Message"] = "Ders silindi";
+                TempData["Durum"] = "0";
+                tempOgrenci.Dersler.Remove(silinecekDers);
+                Db.SaveChanges();
+            }
+
+            return View("DersEkle", tempOgrenci);
+        }
+
         public ActionResult DersDetay(int dersId)
         {
             Ders tempDers = new Ders();

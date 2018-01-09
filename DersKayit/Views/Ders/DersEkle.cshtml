@@ -28,7 +28,8 @@
             <li>
                 <a href="@Url.Action("DersDetay","Ders", new {dersId = item.DersId},null)">
                     @item.DersAdi
-                    </a>
+                </a>
+                 | <label>@Html.ActionLink("Dersi Sil", "DersSil", "Ders", new { ogrenciId = 4, dersId = item.DersId }, null)</label>
             </li>
         }
     </ol>
