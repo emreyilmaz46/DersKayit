@@ -15,17 +15,18 @@
 }
 
 <div class="container">
-    <h5>Öğrenci Bilgileri</h5>
-    <ul>
-        <li> <strong>İsim:</strong> @Model.OgrenciTamAd</li>
-        <li> <strong>Öğrenci Numarası:</strong> @Model.OgrenciNo</li>
-        <li> <strong>Bu öğrenci için toplam @Model.Dersler.Count adet ders eklenmiştir</strong></li>
-    </ul>
-    <hr/> <h5>Öğrenciye Ait Ekli Dersler</h5>
-    <ol>
+    <legend>Öğrenci Bilgileri</legend>
+    <ul class="list-group col-md-6">
+        <li class="list-group-item"> <strong>İsim:</strong> @Model.OgrenciTamAd</li>
+        <li class="list-group-item"> <strong>Öğrenci Numarası:</strong> @Model.OgrenciNo</li>
+        <li class="list-group-item"> <strong>Bu öğrenci için toplam @Model.Dersler.Count adet ders eklenmiştir</strong></li>
+    </ul> 
+    <div class="col-md-6">
+        <legend>Öğrenciye Ait Ekli Dersler</legend>
+    <ol class="list-group">
         @foreach (var item in Model.Dersler)
         {
-            <li>
+            <li class="list-group-item">
                 <a href="@Url.Action("DersDetay","Ders", new {dersId = item.DersId},null)">
                     @item.DersAdi
                 </a>
@@ -35,6 +36,6 @@
     </ol>
     <hr/>
     <p>@Html.ActionLink("Ders Ekleme Ekranına Geri Dön","Index","Ders")</p>
-
+    </div>
 </div>
 

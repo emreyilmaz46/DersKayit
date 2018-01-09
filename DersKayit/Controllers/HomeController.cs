@@ -30,6 +30,8 @@ namespace DersKayit.Controllers
 
             if (tempOgrenci == null)
             {
+                Session["UserId"] = null;
+                Session["UserPass"] = null;
                 return View("HataliGiris");
             }
             else
@@ -37,6 +39,13 @@ namespace DersKayit.Controllers
                 return View("Goster", tempOgrenci);
             }
             
+        }
+
+        public ActionResult Logout()
+        {
+            Session["UserId"] = null;
+            Session["UserPass"] = null;
+            return RedirectToAction("Giris");
         }
 
         public ActionResult Contact()

@@ -155,6 +155,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="KimlikKontrol.cs" />
     <Compile Include="Migrations\201801061403323_InitialCreate.cs" />
     <Compile Include="Migrations\201801061403323_InitialCreate.Designer.cs">
       <DependentUpon>201801061403323_InitialCreate.cs</DependentUpon>
