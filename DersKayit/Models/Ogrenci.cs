@@ -20,6 +20,7 @@ namespace DersKayit.Models
         public Ogrenci()
         {
             this.Rol = "Ogrenci";
+            this.Dersler = new List<Ders>();
         }
     }
 }

@@ -31,6 +31,28 @@ namespace DersKayit.Controllers
             return View();
         }
 
+        public ActionResult DersEkle(int ogrenciId, int dersId)
+        {
+            Ders eklenecekDers = new Ders();
+            eklenecekDers = Db.Dersler.Single(I => I.DersId == dersId);
+            Ogrenci tempOgrenci = new Ogrenci();
+            tempOgrenci = Db.Ogrenciler.Single(I => I.OgrenciId == ogrenciId);
+
+
+            if (tempOgrenci.Dersler.Contains(eklenecekDers))
+            {
+            }
+            else
+            {
+                tempOgrenci.Dersler.Add(eklenecekDers);
+                Db.SaveChanges();
+            }
+
+            //eklenecekDers.KayitliOgrenciler.Add(tempOgrenci);
+            
+            return View(tempOgrenci);
+        }
+
 
         // GET: Ders/Details/5
         public ActionResult Details(int id)

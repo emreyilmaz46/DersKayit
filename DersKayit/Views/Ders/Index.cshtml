@@ -18,11 +18,14 @@
     <div class="panel panel-heading col-md-2 lead">
         @Html.DisplayNameFor(model => model.OnSartVarMi)
     </div>
-    <div class="panel panel-heading col-md-2 lead">
+    <div class="panel panel-heading col-md-1 lead">
         @Html.DisplayNameFor(model => model.BolumId)
     </div>
-    <div class="panel panel-heading col-md-2 lead">
+    <div class="panel panel-heading col-md-1 lead">
         @Html.DisplayNameFor(model => model.HocaId)
+    </div>
+    <div class="panel panel-heading col-md-2 lead">
+        İşlemler
     </div>
     
     @foreach (var item in Model)
@@ -39,17 +42,16 @@
         <div class="panel panel-body col-md-2 lead">
             @Html.DisplayFor(modelitem => item.OnSartVarMi)
         </div>
-        <div class="panel panel-body col-md-2 lead">
+        <div class="panel panel-body col-md-1 lead">
             @Html.DisplayFor(modelitem => item.BolumId)
         </div>
-        <div class="panel panel-body col-md-2 lead">
+        <div class="panel panel-body col-md-1 lead">
             @Html.DisplayFor(modelitem => item.HocaId)
         </div>
+        <div class="panel panel-body col-md-2 lead">
+            @Html.ActionLink("Dersi Ekle","DersEkle","Ders", new { ogrenciId = 2, dersId = item.DersId}, null)
+        </div>
     }
-
-
-
-
 
 </div>
 

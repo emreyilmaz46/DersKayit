@@ -22,5 +22,11 @@ namespace DersKayit.Models
         public virtual int HocaId { get; set; }
         public virtual List<Ders> OnsartDersler { get; set; }
         public virtual List<Ogrenci> KayitliOgrenciler { get; set; }
+
+        public Ders()
+        {
+            this.KayitliOgrenciler = new List<Ogrenci>();
+            this.OnsartDersler = new List<Ders>();
+        }
     }
 }

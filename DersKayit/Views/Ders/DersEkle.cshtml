@@ -1,0 +1,22 @@
+﻿@model DersKayit.Models.Ogrenci
+
+<h2>Ders Eklenme Durumu Kontrol</h2>
+
+<div class="container">
+    
+    <ul>
+        <li> @Model.OgrenciAd</li>
+        <li> @Model.OgrenciSoyad</li>
+        <li> @Model.OgrenciNo</li>
+        <li> Bu öğrenci için toplam @Model.Dersler.Count adet ders eklenmiştir</li>
+    </ul>
+    <hr/>
+    <ol>
+                @foreach (var item in Model.Dersler)
+                {
+                  <li>@item.DersAdi</li>
+        }
+    </ol>
+
+</div>
+
