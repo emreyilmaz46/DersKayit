@@ -4,17 +4,22 @@
     ViewBag.Title = "Goster";
 }
 
-<h2>Başarıyla giriş yaptınız!</h2>
+<legend class="alert alert-success">Başarıyla giriş yaptınız!</legend>
 
-<div clas="breadcrumb">
-    <ul>
-        <li><label>Ad: </label>@Model.OgrenciAd</li>
-        <li><label>Soyad: </label>@Model.OgrenciSoyad</li>
-        <li><label>Öğrenci Numarası: </label>@Model.OgrenciNo</li>
-    </ul>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Öğrenci Bilgileri</h3>
+    </div>
+    <div class="panel-body">
+        <p class="list-group">
+            <label class="list-group-item"> <strong>İsim:</strong> @Model.OgrenciTamAd</label>
+            <label class="list-group-item"> <strong>Öğrenci No:</strong> @Model.OgrenciNo</label>
+            <label class="list-group-item"> <strong>Bölüm:</strong> @Model.Bolum.BolumAdi</label>
+        </p>
+    </div>
 </div>
 
 <div class="panel">
-    <label>@Html.ActionLink("Ders Seç","Index","Ders")</label>
-
+   <label class="lead">@Html.ActionLink("Ders Seç", "Index", "Ders")</label>
 </div>

@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Web;
 using System.Web.Mvc;
 using DersKayit.Models;
+using Action = Antlr.Runtime.Misc.Action;
 
 namespace DersKayit.Controllers
 {
+    [KimlikKontrol]
     public class DersController : Controller
     {
         DersKayitContext Db = new DersKayitContext();
@@ -14,16 +17,9 @@ namespace DersKayit.Controllers
         // GET: Ders
         public ActionResult Index()
         {
-            if (Session["UserId"] != null)
-            {
-                return View(Db.Dersler.ToList());
-            }
-            else
-            {
-                return RedirectToAction("Giris","Home");
-            }
 
-            
+            return View(Db.Dersler.ToList());
+
         }
         [HttpPost]
         public JsonResult TumDersler()

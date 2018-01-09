@@ -3,23 +3,18 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace DersKayit
 {
-    public class KimlikKontrol: ValidationAttribute
-    {
-        public string kimlik { get; set; }
 
-        public override bool IsValid(object value)
+    public class KimlikKontrol : FilterAttribute, IAuthorizationFilter
+    {
+        public void OnAuthorization(AuthorizationContext filterContext)
         {
-            kimlik = value as string;
-            if (kimlik != null)
+            if (filterContext.HttpContext.Session["UserId"] == null)
             {
-                return true;
-            }
-            else
-            {
-                return false;
+                filterContext.Result = new RedirectResult("/");
             }
         }
     }
