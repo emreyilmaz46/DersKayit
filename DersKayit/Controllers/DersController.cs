@@ -53,6 +53,12 @@ namespace DersKayit.Controllers
             return View(tempOgrenci);
         }
 
+        public ActionResult DersDetay(int dersId)
+        {
+            Ders tempDers = new Ders();
+            tempDers = Db.Dersler.Single(I => I.DersId == dersId);
+            return View(tempDers);
+        }
 
         // GET: Ders/Details/5
         public ActionResult Details(int id)

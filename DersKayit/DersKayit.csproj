@@ -207,6 +207,7 @@
     <Content Include="Views\Deneme\Details.cshtml" />
     <Content Include="Views\Deneme\Edit.cshtml" />
     <Content Include="Views\Deneme\Index.cshtml" />
+    <Content Include="Views\Ders\DersDetay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

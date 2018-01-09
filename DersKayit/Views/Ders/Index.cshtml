@@ -31,7 +31,10 @@
     @foreach (var item in Model)
     {
         <div class="panel panel-body col-md-2 lead">
-            @Html.DisplayFor(modelitem => item.DersAdi)
+            <a href="@Url.Action("DersDetay","Ders", new {dersId = item.DersId},null)">
+                @Html.DisplayFor(modelitem => item.DersAdi)
+            </a>
+            
         </div>
         <div class="panel panel-body col-md-2 lead">
             @Html.DisplayFor(modelitem => item.DersKodu)
