@@ -1,0 +1,21 @@
+﻿@model IEnumerable<DersKayit.Models.Ders>
+
+@{
+    ViewBag.Title = "Öğretim Elemanı İşlemleri";
+}
+
+<h2>Öğretim Elemanı İşlemleri</h2>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.DersAdi</li>
+        <ol>
+        @foreach (var o in item.KayitliOgrenciler)
+        {
+            <li> @o.OgrenciTamAd </li>
+        }
+        </ol>
+    }
+</ul>
+

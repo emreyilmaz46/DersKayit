@@ -18,20 +18,6 @@ namespace DersKayit.Controllers
         {
             return View(Db.Dersler.ToList());
         }
-        [HttpPost]
-        public JsonResult TumDersler()
-        {
-            
-            List<Ders> TumDersler = new List<Ders>();
-            TumDersler = Db.Dersler.ToList();
-            return Json(TumDersler, JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult Liste(int OgrenciNo)
-        {
-            string gelen = OgrenciNo.ToString();
-            return View();
-        }
 
         public ActionResult DersEkle(int ogrenciNo, int dersId)
         {

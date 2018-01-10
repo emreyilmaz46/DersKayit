@@ -150,7 +150,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DenemeController.cs" />
     <Compile Include="Controllers\DersController.cs" />
+    <Compile Include="Controllers\HocaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\YoneticiController.cs" />
     <Compile Include="DersKayitContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -229,6 +231,8 @@
     <Content Include="Views\Ders\DersDetay.cshtml" />
     <Content Include="Views\Home\HocaGirisi.cshtml" />
     <Content Include="Views\Home\YoneticiGirisi.cshtml" />
+    <Content Include="Views\Yonetici\Index.cshtml" />
+    <Content Include="Views\Hoca\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
