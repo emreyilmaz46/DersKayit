@@ -2,18 +2,91 @@
     ViewBag.Title = "Giriş Ekranı";
 }
 
-<h2>Lütfen giriş yapınız!</h2>
+<div class="row container">
+    <legend class="page-header col-md-3">Lütfen giriş yapınız</legend>
+    <button class="btn btn-success col-md-3" id="ogrbtn">ÖĞRENCİ</button>
+    <button class="btn btn-warning col-md-3" id="hocabtn">ÖĞRETİM ELEMANI</button>
+    <button class="btn btn-danger col-md-3" id="yonbtn">YÖNETİCİ</button>
+</div>
 
-<div class="breadcrumb">
-    
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken();
-        <label class="lead">@Html.Label("Öğrenci Numaranızı Giriniz: ") </label>
-        @Html.TextBox("OgrenciNo");
-        <label class="lead">@Html.Label("Şifrenizi Giriniz: ") </label>
-        @Html.Password("Sifre");
-        <input type="submit" value="Giriş" class="btn btn-primary">
-    }
+<div class="row breadcrumb">
+    <div class="panel panel-body panel-success col-md-4" id="ogrform">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken();
+            <div class="form-group">
+                @Html.Label("Öğrenci Numaranızı Giriniz: ")
+                @Html.TextBox("OgrenciNo", null, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Şifrenizi Giriniz: ")
+                @Html.Password("Sifre", null, new {@class="form-control"})
+            </div>
+
+            <input type="submit" value="Giriş" class="btn btn-primary">
+        }
+    </div>
+    <div class="panel panel-body panel-warning col-md-4" id="hocaform">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken();
+            <div class="form-group">
+                @Html.Label("Öğretim Elemanı Numaranızı Giriniz: ")
+                @Html.TextBox("HocaNo", null, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Şifrenizi Giriniz: ")
+                @Html.Password("Sifre", null, new {@class="form-control"})
+            </div>
+
+            <input type="submit" value="Giriş" class="btn btn-primary">
+        }
+    </div>
+    <div class="panel panel-body panel-danger col-md-4" id="yonform">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken();
+            <div class="form-group">
+                @Html.Label("Yönetici Numaranızı Giriniz: ")
+                @Html.TextBox("YoneticiNo", null, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Şifrenizi Giriniz: ")
+                @Html.Password("Sifre", null, new { @class = "form-control" })
+            </div>
+
+            <input type="submit" value="Giriş" class="btn btn-primary">
+        }
+    </div>
 
 </div>
+
+@section Scripts
+{
+    <script> 
+        $(document).ready(function () {
+
+            $('#hocaform').hide();
+            $('#yonform').hide();
+
+            $('#ogrbtn').click(function () {
+                $('#hocaform').slideUp("slow");
+                $('#yonform').slideUp("slow");
+                $('#ogrform').slideToggle("slow");
+
+            });
+
+            $('#hocabtn').click(function () {
+                $('#yonform').slideUp("slow");
+                $('#ogrform').slideUp("slow");
+                $('#hocaform').slideToggle("slow");
+            });
+
+            $('#yonbtn').click(function () {
+                $('#ogrform').slideUp("slow");
+                $('#hocaform').slideUp("slow");
+                $('#yonform').slideToggle("slow");
+            });
+        });
+    </script>
+}

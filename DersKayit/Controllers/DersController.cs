@@ -5,7 +5,6 @@ using System.Runtime.InteropServices;
 using System.Web;
 using System.Web.Mvc;
 using DersKayit.Models;
-using Action = Antlr.Runtime.Misc.Action;
 
 namespace DersKayit.Controllers
 {
@@ -17,9 +16,7 @@ namespace DersKayit.Controllers
         // GET: Ders
         public ActionResult Index()
         {
-
             return View(Db.Dersler.ToList());
-
         }
         [HttpPost]
         public JsonResult TumDersler()
@@ -56,8 +53,6 @@ namespace DersKayit.Controllers
                 tempOgrenci.Dersler.Add(eklenecekDers);
                 Db.SaveChanges();
             }
-
-            //eklenecekDers.KayitliOgrenciler.Add(tempOgrenci);
             
             return View(tempOgrenci);
         }
