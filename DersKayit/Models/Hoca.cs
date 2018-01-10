@@ -13,7 +13,7 @@ namespace DersKayit.Models
         public int HocaId { get; set; }
         public string HocaAd { get; set; }
         public string HocaSoyad { get; set; }
-        public string HocaNo { get; set; }
+        public int HocaNo { get; set; }
         public string Sifre { get; set; }
         public string Rol { get; set; }
         [Display(Name = "Hoca Adı")]

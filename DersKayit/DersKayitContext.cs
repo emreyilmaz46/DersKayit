@@ -13,5 +13,6 @@ namespace DersKayit
         public DbSet<Ders> Dersler { get; set; }
         public DbSet<Ogrenci> Ogrenciler { get; set; }
         public DbSet<Hoca> Hocalar { get; set; }
+        public DbSet<Yonetici> Yoneticiler { get; set; }
     }
 }

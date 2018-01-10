@@ -1,0 +1,24 @@
+﻿@model DersKayit.Models.Yonetici
+
+@{
+    ViewBag.Title = "Yönetici Giriş Ekranı";
+}
+
+<legend class="alert alert-success">Başarıyla giriş yaptınız!</legend>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Yönetici Bilgileri</h3>
+    </div>
+    <div class="panel-body">
+        <p class="list-group">
+            <label class="list-group-item"> <strong>İsim:</strong> @Model.YoneticiTamAd</label>
+            <label class="list-group-item"> <strong>Yönetici No:</strong> @Model.YoneticiNo</label>
+        </p>
+    </div>
+</div>
+
+<div class="panel">
+    <label class="lead">@Html.ActionLink("Yönetici İşlemleri", "Index", "Ders")</label>
+</div>

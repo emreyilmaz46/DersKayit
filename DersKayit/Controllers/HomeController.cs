@@ -9,36 +9,85 @@ namespace DersKayit.Controllers
 {
     public class HomeController : Controller
     {
+        DersKayitContext Db = new DersKayitContext();
+
         public ActionResult Giris()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Giris(FormCollection bilgiler)
         {
-            string ogrno = bilgiler["OgrenciNo"];
-            int ogrnoINT = Convert.ToInt32(ogrno);
-            string sifre = bilgiler["Sifre"];
-            //
-            Session["UserId"] = bilgiler["OgrenciNo"];
-            Session["UserPass"] = bilgiler["Sifre"];
-            //
-            DersKayitContext Db = new DersKayitContext();
-            Ogrenci tempOgrenci = new Ogrenci();
-            tempOgrenci = Db.Ogrenciler.Where(I => (I.OgrenciNo == ogrnoINT) && (I.Sifre == sifre)).SingleOrDefault();
+            int key = 0;
+            if (!string.IsNullOrEmpty(bilgiler["OgrenciNo"]))
+            {
+                string ogrno = bilgiler["OgrenciNo"];
+                key = Convert.ToInt32(ogrno);
+                string sifre = bilgiler["Sifre"];
+                Session["UserId"] = bilgiler["OgrenciNo"];
+                Session["UserPass"] = bilgiler["Sifre"];
 
-            if (tempOgrenci == null)
-            {
-                Session["UserId"] = null;
-                Session["UserPass"] = null;
-                return View("HataliGiris");
+                Ogrenci tempOgrenci = new Ogrenci();
+                tempOgrenci = Db.Ogrenciler.SingleOrDefault(I => (I.OgrenciNo == key) && (I.Sifre == sifre));
+
+                    if (tempOgrenci == null)
+                    {
+                        Session["UserId"] = null;
+                        Session["UserPass"] = null;
+                        return View("HataliGiris");
+                    }
+                    else
+                    {
+                        return View("OgrenciGirisi", tempOgrenci);
+                    }
             }
-            else
+            if (!string.IsNullOrEmpty(bilgiler["HocaNo"]))
             {
-                return View("Goster", tempOgrenci);
+                string ogrno = bilgiler["HocaNo"];
+                key = Convert.ToInt32(ogrno);
+                string sifre = bilgiler["Sifre"];
+                Session["UserId"] = bilgiler["HocaNo"];
+                Session["UserPass"] = bilgiler["Sifre"];
+
+                Hoca tempHoca = new Hoca();
+                tempHoca = Db.Hocalar.SingleOrDefault(I => (I.HocaNo == key) && (I.Sifre == sifre));
+
+                if (tempHoca == null)
+                {
+                    Session["UserId"] = null;
+                    Session["UserPass"] = null;
+                    return View("HataliGiris");
+                }
+                else
+                {
+                    return View("HocaGirisi", tempHoca);
+                }
             }
-            
+            if (!string.IsNullOrEmpty(bilgiler["YoneticiNo"]))
+            {
+                string ogrno = bilgiler["YoneticiNo"];
+                key = Convert.ToInt32(ogrno);
+                string sifre = bilgiler["Sifre"];
+                Session["UserId"] = bilgiler["YoneticiNo"];
+                Session["UserPass"] = bilgiler["Sifre"];
+
+                Yonetici tempYonetici = new Yonetici();
+                tempYonetici = Db.Yoneticiler.SingleOrDefault(I => (I.YoneticiNo == key) && (I.Sifre == sifre));
+
+                if (tempYonetici == null)
+                {
+                    Session["UserId"] = null;
+                    Session["UserPass"] = null;
+                    return View("HataliGiris");
+                }
+                else
+                {
+                    return View("YoneticiGirisi", tempYonetici);
+                }
+            }
+            return View("Giris");
         }
 
         public ActionResult Logout()

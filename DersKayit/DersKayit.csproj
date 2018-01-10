@@ -168,11 +168,16 @@
     <Compile Include="Migrations\201801091321561_FullnamePropsAdded.Designer.cs">
       <DependentUpon>201801091321561_FullnamePropsAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801101817291_PropTypeArrangementAndYoneticiModelAdded.cs" />
+    <Compile Include="Migrations\201801101817291_PropTypeArrangementAndYoneticiModelAdded.Designer.cs">
+      <DependentUpon>201801101817291_PropTypeArrangementAndYoneticiModelAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bolum.cs" />
     <Compile Include="Models\Ders.cs" />
     <Compile Include="Models\Hoca.cs" />
     <Compile Include="Models\Ogrenci.cs" />
+    <Compile Include="Models\Yonetici.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -212,7 +217,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Giris.cshtml" />
-    <Content Include="Views\Home\Goster.cshtml" />
+    <Content Include="Views\Home\OgrenciGirisi.cshtml" />
     <Content Include="Views\Home\HataliGiris.cshtml" />
     <Content Include="Views\Ders\Index.cshtml" />
     <Content Include="Views\Ders\DersEkle.cshtml" />
@@ -222,6 +227,8 @@
     <Content Include="Views\Deneme\Edit.cshtml" />
     <Content Include="Views\Deneme\Index.cshtml" />
     <Content Include="Views\Ders\DersDetay.cshtml" />
+    <Content Include="Views\Home\HocaGirisi.cshtml" />
+    <Content Include="Views\Home\YoneticiGirisi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -248,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801091321561_FullnamePropsAdded.resx">
       <DependentUpon>201801091321561_FullnamePropsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801101817291_PropTypeArrangementAndYoneticiModelAdded.resx">
+      <DependentUpon>201801101817291_PropTypeArrangementAndYoneticiModelAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
