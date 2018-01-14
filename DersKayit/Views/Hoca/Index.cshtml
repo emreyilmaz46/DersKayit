@@ -4,18 +4,24 @@
     ViewBag.Title = "Öğretim Elemanı İşlemleri";
 }
 
-<h2>Öğretim Elemanı İşlemleri</h2>
+<div class="page-header">
+    <h3>Ders İşlemleri Sayfasına Hoşgeldiniz!</h3>
+</div>
 
-<ul>
+<ul class="list-group">
     @foreach (var item in Model)
     {
-        <li>@item.DersAdi</li>
-        <ol>
+        <li class="list-group-item"> <strong>@item.DersAdi </strong>Dersine Kayıtlı Öğrenciler</li>
+
+        <ol class="panel panel-info">
         @foreach (var ogr in item.KayitliOgrenciler)
         {
-            <li> @ogr.OgrenciTamAd </li>
+            <li class="alert alert-warning">
+                @ogr.OgrenciTamAd || Öğrenciyi Onayla | Öğrenciyi Reddet
+            </li>
         }
         </ol>
     }
 </ul>
+
 
